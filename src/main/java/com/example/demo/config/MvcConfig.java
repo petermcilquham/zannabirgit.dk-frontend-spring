@@ -5,6 +5,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+// sikkerheds halløj
+// muligvis ikke engang nødvendigt men hvem ved
 @Configuration
 @EnableWebSecurity
 public class MvcConfig extends WebMvcConfigurerAdapter {

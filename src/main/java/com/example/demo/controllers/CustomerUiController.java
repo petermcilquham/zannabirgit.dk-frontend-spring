@@ -32,7 +32,6 @@ public class CustomerUiController {
     public String getBooking(){
         return "customer-ui/onlinebooking";
     }
-
     //  services
     @GetMapping("/zoneterapi.html")
     public String getZoneterapi(){
@@ -50,6 +49,7 @@ public class CustomerUiController {
 
 
     //  fragments
+    //  disse controllers skal være her for at fragments virker men de bruges ikke aktivt
     @RequestMapping("/fragments/images.html")
     public String getImg(){
         return "fragments/images";

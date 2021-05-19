@@ -13,17 +13,22 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    //  spring security password
     @Bean
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
+    //  mere sikkerheds halløj - er måske nødvendigt, har ikke tjekket
     @Override
     public void configure(WebSecurity web){
         web
                 .ignoring()
                 .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/icon/**", "/images/**");
     }
+
+    //  vigtig sikkerhed
+    //  her der sættes beskyttelse på de sider der skal beskyttes
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.headers().frameOptions().sameOrigin();
