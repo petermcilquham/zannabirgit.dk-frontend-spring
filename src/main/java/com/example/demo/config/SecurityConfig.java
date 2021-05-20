@@ -3,12 +3,10 @@ package com.example.demo.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -49,6 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/webjars/**", "/resources/**").permitAll() //webjars og resources skal være der
                 .antMatchers("/").permitAll() //permitAll() kan udskiftes med andre roller
                 .antMatchers("/onlinebooking.html").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.PUT).permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
