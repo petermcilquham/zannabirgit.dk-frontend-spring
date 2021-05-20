@@ -6,8 +6,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class OwnerUiController {
 
+    @GetMapping("/login")
+    public String getLogin(){
+        return "owner-ui/login";
+    }
+
+    @GetMapping("/main")
+    public String getMain(){
+        return "owner-ui/main";
+    }
+
     @GetMapping("/calendar")
-    public String getIndex(){
+    public String getCalendar(){
         return "owner-ui/calendar";
     }
 }
