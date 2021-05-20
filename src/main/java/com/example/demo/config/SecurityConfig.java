@@ -2,6 +2,7 @@ package com.example.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -24,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web){
         web
                 .ignoring()
-                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/icon/**", "/images/**", "/calendar-imports/**");
+                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/productShop/**", "/images/**", "/icon/**", "/images/**", "/calendar-imports/**");
     }
 
     //  vigtig sikkerhed
@@ -39,6 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/webjars/**", "/resources/**").permitAll() //webjars og resources skal være der
                 .antMatchers("/").permitAll() //permitAll() kan udskiftes med andre roller
                 .antMatchers("/**").permitAll()
+                .antMatchers(HttpMethod.PUT).permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

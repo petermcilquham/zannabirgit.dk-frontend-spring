@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container-fluid">
+    <h1>Produkter for 2021</h1>
+    <table class="table editProductsTable">
+        <tr>
+            <th>Id</th>
+            <th>Navn</th>
+            <th>Pris</th>
+        </tr>
+    </table>
+
+    <!--delete product-->
+    <div class="container">
+        <div class="form-group">
+            <label for="deleteProduct"></label>
+            <br><strong>Vælg id til sletning</strong>
+            <input type="number" class="form-control" id="deleteProduct" name="deleteProduct" required>
+            <button type="button" class="btn btn-primary deleteProductButton">Slet produkt</button>
+        </div>
+    </div>
+
+    <!-- edit products -->
+    <div class="container">
+        <h1>Ændre produkter</h1>
+
+        <div class="form-group">
+            <label for="productID">Produkt ID</label>
+            <input type="text" class="form-control" id="productID" name="productID" required>
+        </div>
+
+        <div class="form-group">
+            <label for="productName">Produkt navn</label>
+            <input type="text" class="form-control" id="productName" name="productName">
+        </div>
+
+        <div class="form-group">
+            <label for="productPrice">Produkt pris</label>
+            <input type="number" class="form-control" id="productPrice" name="productPrice">
+        </div>
+
+        <button type="submit" class="btn btn-primary editProductButton">Edit</button>
+    </div>
+</div>
+
+<script src="/js/productShop/editProducts.js"></script>
+<script src="/js/productShop/deleteProducts.js"></script>
+</body>
+</html>
