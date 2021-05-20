@@ -31,18 +31,17 @@ public class CustomerUiController {
     public String getBooking(){
         return "customer-ui/onlinebooking";
     }
-    //  services
     @GetMapping("/zoneterapi.html")
     public String getZoneterapi(){
-        return "services/zoneterapi";
+        return "customer-ui/zoneterapi";
     }
     @GetMapping("/healing.html")
     public String getHealing(){
-        return "services/healing";
+        return "customer-ui/healing";
     }
     @GetMapping("/accessbars.html")
     public String getAccessBars(){
-        return "services/accessbars";
+        return "customer-ui/accessbars";
     }
     @GetMapping("/products.html")
     public String getProducts() {
