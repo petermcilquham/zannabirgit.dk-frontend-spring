@@ -1,34 +1,44 @@
 package com.example.demo.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    //  spring security password
+    @Qualifier("customUserDetailsService")
+    @Autowired
+    private UserDetailsService userDetailsService;
+
     @Bean
-    PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
+    AuthenticationProvider authenticationProvider () {
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setUserDetailsService(userDetailsService);
+        provider.setPasswordEncoder(new BCryptPasswordEncoder());
+        return provider;
     }
 
-    //  mere sikkerheds halløj - er måske nødvendigt, har ikke tjekket
     @Override
-    public void configure(WebSecurity web){
+    public void configure(WebSecurity web) {
         web
                 .ignoring()
                 .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/icon/**", "/images/**", "/calendar-imports/**");
     }
 
-    //  vigtig sikkerhed
-    //  her der sættes beskyttelse på de sider der skal beskyttes
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.headers().frameOptions().sameOrigin();
@@ -38,7 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/webjars/**", "/resources/**").permitAll() //webjars og resources skal være der
                 .antMatchers("/").permitAll() //permitAll() kan udskiftes med andre roller
-                .antMatchers("/**").permitAll()
+                .antMatchers("/onlinebooking.html").hasAuthority("ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()

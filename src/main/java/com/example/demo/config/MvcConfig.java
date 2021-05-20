@@ -19,3 +19,5 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/index.html").addResourceLocations("/WEB-INF/view/react/build/index.html");
     }
 }
+
+
