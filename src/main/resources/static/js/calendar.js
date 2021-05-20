@@ -48,6 +48,7 @@ $(document).ready(function() {
         navLinks: true,
         eventLimit: true,
         weekNumbers: true,
+        basicDay: currentTime,
         events: [
         ],
     });

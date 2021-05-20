@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Produkter | zannabirgit.dk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../../site.webmanifest">
+    <link rel="apple-touch-icon" href="../../icon.png">
+
+    <!--  font links-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Franklin">
+
+    <!--  css links-->
+    <link href="/css/tables.css" rel="stylesheet">
+    <link href="/css/grid.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/normalize.css" rel="stylesheet">
+    <link href="/css/img_header.css" rel="stylesheet">
+    <link href="/css/menu_and_footer.css" rel="stylesheet">
+
+    <!--  load fragments script-->
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous">
+    </script>
+    <script>
+        $(function(){
+            $("#imgHeader").load("/fragments/images.html");
+            $("#menu").load("/fragments/menu.html");
+            $("#footer").load("/fragments/footer.html");
+        });
+    </script>
+</head>
+<body>
+
+<!--  image-->
+<div id="imgHeader"></div>
+
+<!--  menu-->
+<div id="menu"></div>
+
+<!--grid-->
+<div id="content">
+
+    <!--  main-->
+    <div class="div1">
+        <div class="container-fluid">
+            <h1>Produkter for 2021</h1>
+            <table class="table productsTable"></table>
+        </div>
+        <br>
+        du kun et klik væk fra et godt tilbud. Med Click & Collect kan du, i ro og mag, reservere varer på hjemmesiden
+        og afhente i butikken. Click & Collect er fragtfrit, og du betaler først ved afhentning i butikken,
+        hvor betalingen enten er kontant, med MobilePay eller via bankoverførsel
+        Du vil inden for en dag få bekræftet, at dine varer er klar til afhentning.
+        <br><br>
+        Har du spørgsmål, er du atid velkommen til at kontakte mig på mail: zannabirgit@hotmail.com
+        eller gerne en sms på mobil nr 6118 3884.
+    </div>
+    <div class="div2" id="shoppingCartDiv">
+        <h1>Din Kurv</h1>
+        <table class="table shoppingCartTable"></table>
+        <h4 style="float: left">Total Sum:</h4>
+        <h4 id="shoppingCartTotal" style="float: right"></h4>
+        <br><button class="btn btn-primary reserveOnlineBtn" id="reserveOnlineBtn">Reserver Online</button>
+    </div>
+
+</div>
+
+<!--  footer-->
+<div id="footer"></div>
+
+<!--scripts-->
+<script src="/js/main.js"></script>
+<script src="/js/plugins.js"></script>
+<script src="/js/productShop/products.js"></script>
+<script src="/js/productShop/shoppingCart.js"></script>
+
+</body>
+</html>
