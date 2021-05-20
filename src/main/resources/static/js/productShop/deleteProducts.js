@@ -1,0 +1,53 @@
+const getProductsUrl = "http://localhost:8080/products/all"
+
+const requestOption = {
+    headers: {
+        "Content-type": 'application/json'
+    },
+    method: 'GET',
+    redirect: 'follow'
+};
+
+fetch(getProductsUrl, requestOption)
+    .then(response => response.json())
+    .then(data => gotData(data))
+
+function gotData(data) {
+    data.forEach(addRowForEdit)
+}
+
+function addRowForEdit(data) {
+    const table = document.querySelector(".editProductsTable");
+    let rowCount = table.rows.length;
+    let row = table.insertRow(rowCount);
+
+    let cell1 = row.insertCell(0);
+    cell1.innerHTML = data.productId + " - " ;
+
+    let cell2 = row.insertCell(1);
+    cell2.innerHTML = data.productName;
+
+    let cell3 = row.insertCell(2);
+    cell3.innerHTML = data.productPrice + "kr";
+}
+
+const inputProductID = document.getElementById("deleteProduct");
+const deleteProductBtn = document.querySelector(".deleteProductButton")
+
+deleteProductBtn.onclick = function(){
+    deleteProduct(`http://localhost:8080/products/delete/${inputProductID.value}`);
+    location.reload();
+}
+
+function deleteProduct(url){
+    const requestOption = {
+        headers: {
+            "Content-type": 'application/json'
+        },
+        method: 'GET',
+        redirect: 'follow'
+    };
+    fetch(url, requestOption)
+        .then(response => response.json())
+}
+

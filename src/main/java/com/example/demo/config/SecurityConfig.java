@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -34,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) {
         web
                 .ignoring()
-                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/icon/**", "/images/**", "/calendar-imports/**");
+                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/productShop/**", "/images/**", "/icon/**", "/images/**", "/calendar-imports/**");
     }
 
     @Override
@@ -47,6 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/webjars/**", "/resources/**").permitAll() //webjars og resources skal være der
                 .antMatchers("/").permitAll() //permitAll() kan udskiftes med andre roller
                 .antMatchers("/onlinebooking.html").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.PUT).permitAll()
+                .antMatchers("/**").permitAll()
                 .antMatchers(HttpMethod.PUT).permitAll()
                 .anyRequest()
                 .authenticated()

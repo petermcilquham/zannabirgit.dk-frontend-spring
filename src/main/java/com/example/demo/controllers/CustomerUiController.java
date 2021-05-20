@@ -43,4 +43,8 @@ public class CustomerUiController {
     public String getAccessBars(){
         return "customer-ui/accessbars";
     }
+    @GetMapping("/products.html")
+    public String getProducts() {
+        return "customer-ui/products";
+    }
 }

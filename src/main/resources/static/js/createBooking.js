@@ -53,9 +53,12 @@ function postFunction(inputValue) {
 
   fetch(bookingUrl, bookingRequestOption)
       .then(response => response.json())
+
+  alert("Tak for din booking:"
+        + bookingRequestBody
+  )
+  location.reload()
 }
-
-
 
 //Get services list
 const serviceUrl = "http://localhost:8080/services/all";
