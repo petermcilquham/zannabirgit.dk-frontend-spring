@@ -36,18 +36,23 @@ const deleteProductBtn = document.querySelector(".deleteProductButton")
 
 deleteProductBtn.onclick = function(){
     deleteProduct(`http://localhost:8080/products/delete/${inputProductID.value}`);
-    location.reload();
+    // location.reload();
 }
+const deleteRequestOption = {
+    headers: {
+        'Content-type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With',
+        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+        'Access-Control-Allow-Credentials' : true
+    },
+    method: 'DELETE',
+    redirect: 'follow'
+};
 
-function deleteProduct(url){
-    const requestOption = {
-        headers: {
-            "Content-type": 'application/json'
-        },
-        method: 'GET',
-        redirect: 'follow'
-    };
-    fetch(url, requestOption)
+function deleteProduct(deleteUrl){
+    fetch(deleteUrl, deleteRequestOption)
         .then(response => response.json())
 }
 

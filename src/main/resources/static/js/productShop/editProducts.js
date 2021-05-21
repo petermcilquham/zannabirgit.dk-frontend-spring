@@ -22,13 +22,11 @@ function postFunction(inputValue){
             'Content-type': 'application/json',
             'Accept': 'application/json',
             'Access-Control-Allow-Origin' : '*',
-            'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With',
-            'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+            'Access-Control-Allow-Methods': 'GET, POST, PUT',
             'Access-Control-Allow-Credentials' : true
         },
-        method: 'PUT',
-        redirect: 'follow',
-        body: requestBody
+    method: 'POST',
+    body: requestBody
     };
 
     fetch(url, requestOption)
