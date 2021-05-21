@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) {
         web
                 .ignoring()
-                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/productShop/**", "/images/**", "/icon/**", "/images/**", "/calendar-imports/**");
+                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/productShop/**", "/images/**", "/icon/**", "/images/**", "/calendar-imports/**", "/fragments/**");
     }
 
     @Override
@@ -47,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/webjars/**", "/resources/**").permitAll() //webjars og resources skal være der
                 .antMatchers("/").permitAll() //permitAll() kan udskiftes med andre roller
                 .antMatchers("/**").permitAll()
-                .antMatchers("/onlinebooking.html").hasAuthority("ADMIN")
+//                .antMatchers("/onlinebooking.html").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.PUT).permitAll()
                 .antMatchers(HttpMethod.POST).permitAll()
                 .antMatchers(HttpMethod.DELETE).permitAll()

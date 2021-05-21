@@ -1,8 +1,5 @@
 package com.example.demo.models;
 
-
-import org.springframework.context.annotation.Bean;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
