@@ -64,6 +64,8 @@ function postCreateCustomer(inputValue) {
   };
   fetch(customerUrl, customerRequestOption)
       .then(response => response.json())
+
+  postFunction(inputValue)
 }
 
 function changeCustomerId(customerData) {
