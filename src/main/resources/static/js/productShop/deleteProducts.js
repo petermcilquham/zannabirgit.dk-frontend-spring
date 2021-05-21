@@ -36,7 +36,7 @@ const deleteProductBtn = document.querySelector(".deleteProductButton")
 
 deleteProductBtn.onclick = function(){
     deleteProduct(`http://localhost:8080/products/delete/${inputProductID.value}`);
-    // location.reload();
+    location.reload();
 }
 const deleteRequestOption = {
     headers: {
@@ -49,6 +49,7 @@ const deleteRequestOption = {
     },
     method: 'DELETE',
     redirect: 'follow'
+
 };
 
 function deleteProduct(deleteUrl){
