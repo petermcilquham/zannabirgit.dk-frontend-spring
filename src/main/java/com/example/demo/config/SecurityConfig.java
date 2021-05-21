@@ -36,21 +36,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().contentTypeOptions().disable();
         http.csrf().disable();
         http
-                .authorizeRequests()
-                .antMatchers("/webjars/**", "/resources/**").permitAll() //webjars og resources skal være der
-                .antMatchers("/").permitAll() //permitAll() kan udskiftes med andre roller
-                .antMatchers("/**").permitAll()
-                .antMatchers(HttpMethod.PUT).permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .formLogin()
-//               .loginPage("/") //kan give adgang til specifikke sider
-                .and()
-                .httpBasic()
-                .and()
-                .cors().and().
-                csrf().disable();
+            .authorizeRequests()
+            .antMatchers("/webjars/**", "/resources/**").permitAll() //webjars og resources skal være der
+            .antMatchers("/").permitAll() //permitAll() kan udskiftes med andre roller
+            .antMatchers("/**").permitAll()
+            .antMatchers(HttpMethod.PUT).permitAll()
+            .antMatchers(HttpMethod.DELETE).permitAll()
+            .anyRequest()
+            .authenticated()
+            .and()
+            .formLogin()
+    //               .loginPage("/") //kan give adgang til specifikke sider
+            .and()
+            .httpBasic()
+            .and()
+            .cors().and().
+            csrf().disable();
     }
 }
 
