@@ -44,7 +44,6 @@ function getTotalSum(productPrice) {
         return acc + val;
         }, 0)
     document.getElementById("shoppingCartTotal").innerHTML = totalSum + "kr"
-    console.log(totalSum)
 }
 
 document.getElementById("reserveOnlineBtn").addEventListener("click", reserveOnline)

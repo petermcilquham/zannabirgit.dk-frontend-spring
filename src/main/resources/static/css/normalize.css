@@ -42,7 +42,8 @@ h1 {
   margin: 0 0 0.67em;
 }
 h2 {
-  margin: 0 0 0.67em
+  margin: 0 0 0.67em;
+  display: inline;
 }
 
 /* Grouping content

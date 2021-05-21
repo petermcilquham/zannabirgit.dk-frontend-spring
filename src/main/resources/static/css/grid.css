@@ -28,6 +28,37 @@
   grid-template-rows: 1fr;
 }
 
+.shoppingCartGrid{
+  display: grid;
+  width: 100%;
+  justify-items: right;
+  grid-template-areas:
+    'title title'
+    'product product'
+    'total totalSum'
+    'btn btn';
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 30px 1fr 20px 20px;
+  grid-row-gap: 10px;
+  grid-column-gap: 5px;
+}
+
+#shoppingCartGrid > .divTitle {
+  grid-area: title;
+}
+#shoppingCartGrid > .divProduct {
+  grid-area: product;
+}
+#shoppingCartGrid > .divTotal {
+  grid-area: total;
+}
+#shoppingCartGrid > .divTotalSum {
+  grid-area: totalSum;
+}
+#shoppingCartGrid > .divButton {
+  grid-area: btn;
+}
+
 #footer{
   display: grid;
   margin: auto;
@@ -47,3 +78,5 @@
   grid-area:info;
   justify-self: left;
 }
+
+
