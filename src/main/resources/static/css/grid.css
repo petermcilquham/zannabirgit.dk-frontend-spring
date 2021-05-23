@@ -1,3 +1,4 @@
+/* standard grid */
 #content{
   display: grid;
   width: 60%;
@@ -17,6 +18,7 @@
   padding: 0 20px;
 }
 
+/* single column grid */
 #content-center{
   display: grid;
   width: 60%;
@@ -28,37 +30,38 @@
   grid-template-rows: 1fr;
 }
 
-.shoppingCartGrid{
+/* shopping cart grid */
+#shoppingCart{
   display: grid;
   width: 100%;
-  justify-items: right;
   grid-template-areas:
-    'title title'
-    'product product'
-    'total totalSum'
-    'btn btn';
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 30px 1fr 20px 20px;
+    'title'
+    'product'
+    'totalSum'
+    'btn';
+  grid-template-columns: 1fr;
+  grid-template-rows: 40px 1fr 25px 25px;
   grid-row-gap: 10px;
   grid-column-gap: 5px;
 }
 
-#shoppingCartGrid > .divTitle {
+#shoppingCart > .shoppingCartGridChild_1 {
   grid-area: title;
 }
-#shoppingCartGrid > .divProduct {
+#shoppingCart > .shoppingCartGridChild_2 {
   grid-area: product;
 }
-#shoppingCartGrid > .divTotal {
-  grid-area: total;
-}
-#shoppingCartGrid > .divTotalSum {
+#shoppingCart > .shoppingCartGridChild_3 {
   grid-area: totalSum;
 }
-#shoppingCartGrid > .divButton {
+#shoppingCart > .shoppingCartGridChild_3 > h4{
+  display: inline;
+}
+#shoppingCart > .shoppingCartGridChild_4 {
   grid-area: btn;
 }
 
+/* footer grid */
 #footer{
   display: grid;
   margin: auto;

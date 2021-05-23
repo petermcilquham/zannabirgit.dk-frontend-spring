@@ -45,10 +45,8 @@
 
     <!--  main-->
     <div class="div1">
-        <div class="container-fluid">
-            <h1>Produkter for 2021</h1>
-            <table class="table productsTable"></table>
-        </div>
+        <h1>Produkter for 2021</h1>
+        <table class="table productsTable"></table>
         <br>
         Du kun et klik væk fra et godt tilbud. Med Click & Collect kan du, i ro og mag, reservere varer på hjemmesiden
         og afhente i butikken. Click & Collect er fragtfrit, og du betaler først ved afhentning i butikken,
@@ -58,22 +56,23 @@
         Har du spørgsmål, er du atid velkommen til at kontakte mig på mail: zannabirgit@hotmail.com
         eller gerne en sms på mobil nr 6118 3884.
     </div>
-<!--    <div class="div2" id="shoppingCartDiv">-->
-<!--        <h1>Din Kurv</h1>-->
-<!--        <table class="table shoppingCartTable"></table>-->
-<!--        <h4 style="float: left; position: relative">Total Sum:</h4>-->
-<!--        <h4 id="shoppingCartTotal" style="float: right"></h4>-->
-<!--        <br><button class="btn btn-primary reserveOnlineBtn" id="reserveOnlineBtn" style="position: absolute;top:0">Reserver Online</button>-->
-<!--    </div>-->
-    <div class="div2" id="shoppingCartDiv">
-        <h1 class="divTitle">Din Kurv</h1>
-        <table class="table shoppingCartTable divProduct"></table>
-        <h4 class="divTotal">Total Sum:</h4>
-        <h4 class="divTotalSum" id="shoppingCartTotal"></h4>
-        <button class="btn btn-primary reserveOnlineBtn divButton" id="reserveOnlineBtn">Reserver Online</button>
+
+    <!--  aside -->
+    <div class="div2">
+        <div id="shoppingCart">
+            <h1 class="shoppingCartGridChild_1">Din Kurv</h1>
+            <table class="table shoppingCartTable shoppingCartGridChild_2"></table>
+            <div class="shoppingCartGridChild_3">
+                <h4 style="margin-right: 20px">Total Sum:</h4>
+                <h4 id="shoppingCartTotal"></h4>
+            </div>
+            <button class="btn reserveOnlineBtn shoppingCartGridChild_4" id="reserveOnlineBtn">Reserver Online</button>
+        </div>
     </div>
 
 </div>
+
+
 
 <!--  footer-->
 <div id="footer"></div>

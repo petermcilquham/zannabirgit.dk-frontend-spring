@@ -11,39 +11,39 @@ public class CustomerUiController {
     public String getIndex(){
         return "customer-ui/index";
     }
-    @GetMapping("/efterbehandling.html")
+    @GetMapping("/efterbehandling")
     public String getEfterBehandling(){
         return "customer-ui/efterbehandling";
     }
-    @GetMapping("/erfaringer.html")
+    @GetMapping("/erfaringer")
     public String getErfaringer(){
         return "customer-ui/erfaringer";
     }
-    @GetMapping("/priser.html")
+    @GetMapping("/priser")
     public String getPriser(){
         return "customer-ui/priser";
     }
-    @GetMapping("/kontakt.html")
+    @GetMapping("/kontakt")
     public String getKontakt(){
         return "customer-ui/kontakt";
     }
-    @GetMapping("/onlinebooking.html")
+    @GetMapping("/onlinebooking")
     public String getBooking(){
         return "customer-ui/onlinebooking";
     }
-    @GetMapping("/zoneterapi.html")
+    @GetMapping("/zoneterapi")
     public String getZoneterapi(){
         return "customer-ui/zoneterapi";
     }
-    @GetMapping("/healing.html")
+    @GetMapping("/healing")
     public String getHealing(){
         return "customer-ui/healing";
     }
-    @GetMapping("/accessbars.html")
+    @GetMapping("/accessbars")
     public String getAccessBars(){
         return "customer-ui/accessbars";
     }
-    @GetMapping("/products.html")
+    @GetMapping("/products")
     public String getProducts() {
         return "customer-ui/products";
     }

@@ -21,7 +21,7 @@ public class OwnerUiController {
         return "owner-ui/calendar";
     }
 
-    @GetMapping("/edit/products.html")
+    @GetMapping("/edit/products")
     public String editProducts() {
         return "owner-ui/editProducts";
     }

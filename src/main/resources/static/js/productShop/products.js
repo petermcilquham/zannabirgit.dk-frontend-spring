@@ -27,7 +27,8 @@ function addRow(data) {
     cell2.innerHTML = data.productPrice + "kr";
 
     let cell3 = row.insertCell(2);
-    addToCartBtn = document.createElement("BUTTON");
+
+    let addToCartBtn = document.createElement("BUTTON");
     let btnText = document.createTextNode("Tilføj til kurv")
     addToCartBtn.appendChild(btnText)
 

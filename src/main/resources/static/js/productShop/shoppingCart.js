@@ -54,13 +54,14 @@ function reserveOnline() {
         "\nTak for du handler med mig")
     location.reload()
 }
+
 hideCartIfEmpty()
 function hideCartIfEmpty() {
-    let shoppingCartDiv = document.getElementById("shoppingCartDiv")
+    let shoppingCart = document.getElementById("shoppingCart")
     if (shoppingCartArray.length === 0) {
-        $(shoppingCartDiv).hide();
+        $(shoppingCart).hide();
         shoppingCartArray.length+=1
     } else {
-        $(shoppingCartDiv).show();
+        $(shoppingCart).show();
     }
 }
