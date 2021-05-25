@@ -21,7 +21,7 @@ public class CustomerUiController {
     }
     @GetMapping("/priser.html")
     public String getPriser(){
-        return "/src/main/resources/templates/customer-ui/priser.html";
+        return "customer-ui/priser";
     }
     @GetMapping("/kontakt.html")
     public String getKontakt(){
