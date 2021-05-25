@@ -4,8 +4,13 @@ const in3 = document.getElementById("bookingTime");
 const in4 = document.getElementById("customerEmail");
 const in5 = document.getElementById("customerName");
 const in6 = document.getElementById("customerPhone");
-let customerId = 0
+let customerId = 0;
+let newCustomer;
 
+const restartBtn = document.getElementById("restartButton");
+restartBtn.addEventListener("click", function () {
+  location.reload();
+})
 const createBookingBtn = document.querySelector(".createBookingButton");
 createBookingBtn.onclick = function(){
   getDateTime()
@@ -36,7 +41,6 @@ function checkDateTime(data){
 
 //get customer id
 function getCustomerId() {
-  console.log("getCustomerId metode")
   const customerEmailUrl = `http://localhost:8080/customers/email/${in4.value}`;
   const customerEmailRequestOption = {
     headers: {
@@ -51,24 +55,28 @@ function getCustomerId() {
         const contentType = response.headers.get("content-type");
         if (contentType && contentType.indexOf("application/json") !== -1) {
           return response.json()
-              .then(customerData => changeCustomerId(customerData));
+              .then(customerData => changeEmailToCustomerId(customerData));
+
         } else {
           return response.text()
               .then(newCustomerData => createCustomer(newCustomerData));
+
         }
       })
 }
+
 function createCustomer() {
-  console.log("createCustomer metode")
-  alert("Opretter ny customer")
+  newCustomer = true
+  console.log(newCustomer)
+  alert("laver ny customer")
   postCreateCustomer({
     "customerName": `${in5.value}`,
     "customerEmail": `${in4.value}`,
     "customerPhone": `${in6.value}`,
   });
 }
+
 function postCreateCustomer(inputValue) {
-  console.log("postCreateCustomer metode")
   const customerUrl = "http://localhost:8080/customers/create";
   let customerRequestBody = JSON.stringify(inputValue);
 
@@ -89,8 +97,11 @@ function postCreateCustomer(inputValue) {
   postFunction(inputValue)
 }
 
-function changeCustomerId(customerData) {
-  console.log("changeCustomerId metode")
+function changeEmailToCustomerId(customerData) {
+  newCustomer = false
+  console.log(newCustomer)
+  in5.innerText = customerData.customerName
+  in6.innerText = customerData.customerPhone
   alert("customer findes allerede")
   postFunction({
     "serviceId": `${in1.value}`,
@@ -126,20 +137,6 @@ function postFunction(inputValue) {
   )
   location.reload()
 }
-
-//create customer if they dont exist
-function isEmpty(customerEmailUrl) {
-  // for (var prop in customerEmailUrl) {
-  //   if (customerEmailUrl.hasOwnProperty(prop)) {
-  //     return alert("kunde findes ikke")
-  //   }
-  //   return alert("kunde findes")
-  // }
-
-  console.log(Object.keys(customerEmailUrl).length)
-
-}
-
 
 //Get services list
 const serviceUrl = "http://localhost:8080/services/all";

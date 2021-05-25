@@ -48,4 +48,5 @@ public class CustomerUiController {
     public String getProducts() {
         return "customer-ui/products";
     }
+
 }

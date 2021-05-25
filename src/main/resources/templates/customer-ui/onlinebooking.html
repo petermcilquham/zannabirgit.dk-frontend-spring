@@ -18,6 +18,7 @@
   <link href="/css/normalize.css" rel="stylesheet">
   <link href="/css/img_header.css" rel="stylesheet">
   <link href="/css/menu_and_footer.css" rel="stylesheet">
+  <link href="/css/createBooking.css" rel="stylesheet">
 
   <!--  load fragments script-->
   <script
@@ -46,40 +47,60 @@
 
   <!--  main-->
   <div class="div1">
-    <h1>Online Booking</h1>
-    <div class="form-group booking">
-      <label for="serviceDropdown">Service</label>
-      <select name="serviceDropdown" id="serviceDropdown">
-        <option hidden selected disabled>Vælg en service</option>
-      </select>
-    </div>
+    <div class="div1 createBookingDiv">
 
-    <div class="form-group">
-      <label for="bookingDate">Date</label>
-      <input type="date" class="form-control" id="bookingDate" name="bookingDate" required>
-    </div>
+      <div class="form-group bookingDivs" id="serviceSelectDiv">
+        <div class="createBookingLabels">
+          <label for="serviceDropdown">1) Vælg Service<br></label>
+        </div>
+        <select name="serviceDropdown" class="form-control bookingInputs" id="serviceDropdown">
+          <option hidden selected disabled>Vælg en service</option>
+        </select>
+      </div>
 
-    <div class="form-group">
-      <label for="bookingTime">Time</label>
-      <input type="time" class="form-control" id="bookingTime" name="bookingTime" required>
-    </div>
+      <div class="form-group bookingDivs" id="bookingDateDiv">
+        <div class="createBookingLabels">
+          <label for="bookingDate">2) Vælg en dato<br></label>
+        </div>
+        <input type="date" class="form-control bookingInputs" id="bookingDate" name="bookingDate" required>
+      </div>
 
-    <div class="form-group">
-      <label for="customerEmail">Email</label>
-      <input type="text" class="form-control" id="customerEmail" name="customerEmail" required>
-    </div>
+      <div class="form-group bookingDivs" id="bookingTimeDiv">
+        <div class="createBookingLabels">
+          <label for="bookingTime">3) Vælg et tidspunkt<br></label>
+        </div>
+        <input type="time" class="form-control bookingInputs" id="bookingTime" name="bookingTime" required>
+      </div>
 
-    <div class="form-group">
-      <label for="customerName">Navn</label>
-      <input type="text" class="form-control" id="customerName" name="customerName" >
-    </div>
+      <div class="form-group bookingDivs" id="customerEmailDiv">
+        <div class="createBookingLabels">
+          <label for="customerEmail">4) Bekræft booking</label>
+        </div>
+        <div class="customerLabels">
+          <label for="customerEmail"><br>Email<br></label>
+        </div>
+        <input type="text" class="form-control bookingInputs customerInfo" id="customerEmail" name="customerEmail" placeholder="Indtast din E-mail"required >
+      </div>
 
-    <div class="form-group">
-      <label for="customerPhone">Tlf. Nummer</label>
-      <input type="number" class="form-control" id="customerPhone" name="customerPhone" >
-    </div>
+      <div class="form-group bookingDivs" id="customerNameDiv">
+        <div class="customerLabels">
+          <label for="customerName"><br>Fulde navn<br></label>
+        </div>
+        <input type="text" class="form-control bookingInputs customerInfo" id="customerName" name="customerName" placeholder="Indtast dit fulde navn">
+      </div>
 
-    <button class="btn btn-primary createBookingButton" id="createBookingButton">Opret</button>
+      <div class="form-group bookingDivs" id="customerPhoneDiv">
+        <div class="customerLabels">
+          <label for="customerPhone"><br>Telefon nummer<br></label>
+        </div>
+        <input type="number" class="form-control bookingInputs customerInfo" id="customerPhone" name="customerPhone" placeholder="Indtast dit telefonnummer">
+      </div>
+
+      <div class="form-group bookingButtons" id="bookingButtons">
+        <button class="btn btn-primary createBookingButton" id="createBookingButton">Bekræft</button>
+        <button type="button" id="restartButton">Start om</button>
+      </div>
+    </div>
 
     <div class="betingelser">
       <p>
@@ -98,7 +119,8 @@
 
   <!--  aside-->
   <div class="div2">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8992.303470939032!2d12.585346!3d55.705053!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465252efb85fa8eb%3A0x288a29d1d5531261!2sSilkeborg%20Pl.%208%2C%20st.tv.%2C%202100%2C%202100%20K%C3%B8benhavn%2C%20Denmark!5e0!3m2!1sen!2sus!4v1620994914303!5m2!1sen!2sus" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8992.303470939032!2d12.585346!3d55.705053!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465252efb85fa8eb%3A0x288a29d1d5531261!2sSilkeborg%20Pl.%208%2C%20st.tv.%2C%202100%2C%202100%20K%C3%B8benhavn%2C%20Denmark!5e0!3m2!1sen!2sus!4v1620994914303!5m2!1sen!2sus"
+            width="100%" height="50%" style="border:0;" allowfullscreen=""></iframe>
 
     <div class="map-text">
       <p>
@@ -128,6 +150,7 @@
 <script src="/js/plugins.js"></script>
 <script src="/js/createBooking.js"></script>
 <script src="/js/imageHeader.js"></script>
+<script src="/js/createBookingStyling.js"></script>
 
 </body>
 </html>
