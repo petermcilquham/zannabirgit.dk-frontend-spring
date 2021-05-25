@@ -1,4 +1,4 @@
-#menu{
+.menu{
   /*sætter menuen fast i toppen af skærmen*/
   position: sticky;
   top: 0;
@@ -8,15 +8,15 @@
   background-color: rgb(188, 202, 139);
   border-bottom: solid 1px #ccc;
 }
-#menu > #nav{
+.menu > #nav{
   text-align: center;
   padding: 20px 0;
 }
-#menu > #nav > ul, #menu > #nav > ul > li > ul{
+.menu > #nav > ul, #menu > #nav > ul > li > ul{
   list-style: none;
   padding: 0;
 }
-#menu > #nav > ul > li{
+.menu > #nav > ul > li{
   display: inline; /*gør listen horizontal i stedet for vertikal*/
   margin-right: 45px; /* afstand imellem */
   cursor: pointer;
@@ -25,7 +25,7 @@
   line-height: 2;
   font-family: "Libre Franklin", helvetica, arial, sans-serif;
 }
-#menu > #nav > ul > li > a{
+.menu > #nav > ul > li > a{
   display: inline-block;
 }
 

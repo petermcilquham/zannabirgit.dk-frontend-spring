@@ -13,7 +13,7 @@ setTimeout(function(){
     imgArray[2] = img3
     imgArray[3] = img4
     imgArray[4] = img5
-}, 100)
+}, 500)
 
 let imgCount = 0;
 

@@ -6,14 +6,37 @@ const in5 = document.getElementById("customerName");
 const in6 = document.getElementById("customerPhone");
 let customerId = 0
 
-
 const createBookingBtn = document.querySelector(".createBookingButton");
 createBookingBtn.onclick = function(){
-  getCustomerId()
+  getDateTime()
+}
+
+//check for date/time combo already existing
+function getDateTime(){
+  const bookingDateTimeUrl = `http://localhost:8080/bookings/datetime/${in2.value},${in3.value + ":00"}`;
+  const bookingDateTimeRequestOption = {
+    headers: {
+      "Content-type": 'application/json'
+    },
+    method: 'GET',
+    redirect: 'follow'
+  };
+
+  fetch(bookingDateTimeUrl, bookingDateTimeRequestOption)
+      .then(response => response.json())
+      .then(data => checkDateTime(data));
+}
+function checkDateTime(data){
+  if(data.message==null){
+    getCustomerId()
+  } else {
+    alert("Booking på det valgte tidspunkt findes allerede ")
+  }
 }
 
 //get customer id
 function getCustomerId() {
+  console.log("getCustomerId metode")
   const customerEmailUrl = `http://localhost:8080/customers/email/${in4.value}`;
   const customerEmailRequestOption = {
     headers: {
@@ -29,25 +52,23 @@ function getCustomerId() {
         if (contentType && contentType.indexOf("application/json") !== -1) {
           return response.json()
               .then(customerData => changeCustomerId(customerData));
-
         } else {
           return response.text()
               .then(newCustomerData => createCustomer(newCustomerData));
-
         }
       })
 }
-
 function createCustomer() {
-  alert("laver ny customer")
+  console.log("createCustomer metode")
+  alert("Opretter ny customer")
   postCreateCustomer({
     "customerName": `${in5.value}`,
     "customerEmail": `${in4.value}`,
     "customerPhone": `${in6.value}`,
   });
 }
-
 function postCreateCustomer(inputValue) {
+  console.log("postCreateCustomer metode")
   const customerUrl = "http://localhost:8080/customers/create";
   let customerRequestBody = JSON.stringify(inputValue);
 
@@ -69,6 +90,7 @@ function postCreateCustomer(inputValue) {
 }
 
 function changeCustomerId(customerData) {
+  console.log("changeCustomerId metode")
   alert("customer findes allerede")
   postFunction({
     "serviceId": `${in1.value}`,

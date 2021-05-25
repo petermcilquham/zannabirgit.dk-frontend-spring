@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class FragmentsController {
@@ -19,5 +20,9 @@ public class FragmentsController {
     @GetMapping("/fragments/footer.html")
     public String getFooter(){
         return "fragments/footer";
+    }
+    @GetMapping("/fragments/ownerMenu.html")
+    public String getOwnerMenu(){
+        return "fragments/ownerMenu";
     }
 }
