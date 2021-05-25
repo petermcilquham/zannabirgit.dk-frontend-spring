@@ -12,7 +12,7 @@
   text-align: center;
   padding: 20px 0;
 }
-.menu > #nav > ul, #menu > #nav > ul > li > ul{
+.menu > #nav > ul, .menu > #nav > ul > li > ul{
   list-style: none;
   padding: 0;
 }
