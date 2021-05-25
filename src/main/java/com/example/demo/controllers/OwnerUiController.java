@@ -6,23 +6,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class OwnerUiController {
 
-    @GetMapping("/login")
+    @GetMapping("/login.html")
     public String getLogin(){
         return "owner-ui/login";
     }
 
-    @GetMapping("/main")
+    @GetMapping("/main.html")
     public String getMain(){
         return "owner-ui/main";
     }
 
-    @GetMapping("/calendar")
+    @GetMapping("/calendar.html")
     public String getCalendar(){
         return "owner-ui/calendar";
     }
 
-    @GetMapping("/edit/products")
+    @GetMapping("/edit/products.html")
     public String editProducts() {
         return "owner-ui/editProducts";
     }
+
+
 }
