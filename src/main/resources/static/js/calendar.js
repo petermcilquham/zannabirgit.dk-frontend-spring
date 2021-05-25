@@ -14,16 +14,16 @@ fetch(calendarUrl, requestOption)
     .then(data => gotData(data));
 
 function gotData(data) {
+    console.log(data)
     data.forEach(addToArray)
 }
 
 function addToArray(data) {
     let id = data.id
     let date = data.bookingDate
-    let title = data.customerName
+    let title = "Start tid: " + data.bookingTime.slice(0, 5)
+        + "\n " + data.customerName
         + "\n Tlf: " + data.customerPhone
-        + "\n " + "Start tid: "
-        + data.bookingTime.slice(0, 5)
 
     $('#calendar').fullCalendar('renderEvent', {
         id: id,
