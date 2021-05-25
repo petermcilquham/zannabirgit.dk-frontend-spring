@@ -14,6 +14,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+
+
+    /*  Benyt denne hjemmeside til at oprette et krypteret password
+        og indsæt det derefter i databasen: https://www.appdevtools.com/bcrypt-generator
+        Det krypterede kodeord skal starte med $2a$, ellers virker det ikke pga. af et issue med spring.
+     */
+
     //  spring security password
     @Bean
     PasswordEncoder passwordEncoder(){
