@@ -1,0 +1,35 @@
+.createBookingDiv {
+    border: solid black 1px;
+}
+
+.createBookingLabels {
+    background-color: rgb(188, 202, 139);
+    border: solid black 1px;
+    padding: 15px 15px 15px 1px !important;
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.customerLabels {
+    padding: 5px 5px 5px 5px !important;
+    margin: 5px;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.bookingInputs {
+    padding: 5px 5px 5px 5px !important;
+    display: block;
+    margin: 5px;
+}
+
+.customerInfo {
+    width: 96%;
+}
+
+.bookingButtons {
+    padding: 15px 5px 5px 5px !important;
+    display: block;
+    margin: 5px;
+}
