@@ -59,6 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/fragments/menu.html").permitAll()
                 .antMatchers("/fragments/footer.html").permitAll()
                 .antMatchers("/fragments/ownerMenu.html").permitAll()
+                .antMatchers("/fragments/rule.html").permitAll()
                 .antMatchers("/calendar").hasAuthority("ADMIN")
                 .antMatchers("/editProducts").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.PUT).permitAll()

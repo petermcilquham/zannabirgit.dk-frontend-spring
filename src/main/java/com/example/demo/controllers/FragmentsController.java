@@ -24,4 +24,8 @@ public class FragmentsController {
     public String getOwnerMenu(){
         return "fragments/ownerMenu";
     }
+    @GetMapping("/fragments/rule.html")
+    public String getRule(){
+        return "fragments/rule";
+    }
 }

@@ -30,7 +30,8 @@
     $(function(){
       $("#imgHeader").load("/fragments/images.html");
       $(".menu").load("/fragments/menu.html");
-      $("#footer").load("/fragments/footer.html");
+      $(".rule").load("/fragments/rule.html");
+      $(".footer").load("/fragments/footer.html");
     });
   </script>
 </head>
@@ -79,7 +80,7 @@
         <div class="customerLabels">
           <label for="customerEmail"><br>Email<br></label>
         </div>
-        <input type="text" class="form-control bookingInputs customerInfo" id="customerEmail" name="customerEmail" placeholder="Indtast din E-mail"required >
+        <input type="text" class="form-control bookingInputs customerInfo" id="customerEmail" name="customerEmail" placeholder="Indtast din E-mail" required >
       </div>
 
       <div class="form-group bookingDivs" id="customerNameDiv">
@@ -139,8 +140,11 @@
 
 </div>
 
+<!--hr-->
+<div class="rule"></div>
+
 <!--  footer-->
-<div id="footer"></div>
+<div class="footer"></div>
 
 
 
@@ -151,6 +155,7 @@
 <script src="/js/createBooking.js"></script>
 <script src="/js/imageHeader.js"></script>
 <script src="/js/createBookingStyling.js"></script>
+<script src="/js/footerQuotes.js"></script>
 
 </body>
 </html>
