@@ -2,13 +2,13 @@ const getProductsUrl = "http://localhost:8080/products/all"
 const requestOption = {
     headers: {
         'Content-type': 'application/json',
-        'Accept': 'application/json',
-        'mode':'cors',
-        'Access-Control-Allow-Origin' : '*',
-        'Vary': 'Origin',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With',
-        'Access-Control-Allow-Methods': 'GET, POST, PUT',
-        'Access-Control-Allow-Credentials' : true
+        // 'Accept': 'application/json',
+        // 'mode':'cors',
+        // 'Access-Control-Allow-Origin' : '*',
+        // 'Vary': 'Origin',
+        // 'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With',
+        // 'Access-Control-Allow-Methods': 'GET, POST, PUT',
+        // 'Access-Control-Allow-Credentials' : true
     },
     method: 'GET',
     redirect: 'follow'
@@ -51,17 +51,16 @@ function deleteProduct(inputValue){
     const deleteUrl = `http://localhost:8080/products/delete/${inputProductID.value}`
 
     let requestBody = JSON.stringify(inputValue);
-
     const deleteRequestOption = {
         headers: {
             'Content-type': 'application/json',
-            'Accept': 'application/json',
-            'mode':'cors',
-            'Access-Control-Allow-Origin' : '*',
-            'Vary': 'Origin',
-            'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With',
-            'Access-Control-Allow-Methods': 'GET, POST, PUT',
-            'Access-Control-Allow-Credentials' : true
+            // 'Accept': 'application/json',
+            // 'mode':'cors',
+            // 'Access-Control-Allow-Origin' : '*',
+            // 'Vary': 'Origin',
+            // 'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With',
+            // 'Access-Control-Allow-Methods': 'GET, POST, PUT',
+            // 'Access-Control-Allow-Credentials' : true
         },
         method: 'DELETE',
         redirect: 'follow',

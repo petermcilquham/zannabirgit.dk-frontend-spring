@@ -45,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/webjars/**", "/resources/**").permitAll() //webjars og resources skal være der
-                .antMatchers("/**").permitAll() //permitAll() kan udskiftes med andre roller
+                .antMatchers("/").permitAll() //permitAll() kan udskiftes med andre roller
                 .antMatchers("/efterbehandling.html").permitAll()
                 .antMatchers("/erfaringer.html").permitAll()
                 .antMatchers("/priser.html").permitAll()
@@ -60,18 +60,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/fragments/footer.html").permitAll()
                 .antMatchers("/fragments/ownerMenu.html").permitAll()
                 .antMatchers("/fragments/rule.html").permitAll()
-                .antMatchers("/calendar.html").permitAll()
-                .antMatchers("/editProducts.html").permitAll()
-//                .antMatchers("/calendar").hasAuthority("ADMIN")
-//                .antMatchers("/editProducts").hasAuthority("ADMIN")
+                .antMatchers("/calendar").hasAuthority("ADMIN")
+                .antMatchers("/editProducts").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.PUT).permitAll()
                 .antMatchers(HttpMethod.POST).permitAll()
                 .antMatchers(HttpMethod.DELETE).permitAll()
                 .anyRequest()
                 .authenticated()
-//                .and()
-//                .formLogin( )
-//                    .defaultSuccessUrl("/calendar", true)
+                .and()
+                .formLogin( )
+                    .defaultSuccessUrl("/calendar", true)
 //              .loginPage("/calendar") //hvis man vil have sin egen login side
                 .and()
                 .logout(logout -> logout
