@@ -1,11 +1,11 @@
-const in1 = document.getElementById("productID");
+const in1 = document.getElementById("productId");
 const in2 = document.getElementById("productName");
 const in3 = document.getElementById("productPrice");
 
 const editProductBtn = document.querySelector(".editProductButton");
 editProductBtn.onclick = function() {
     postFunction({
-        "productID": `${in1.value}`,
+        "productId": `${in1.value}`,
         "productName": `${in2.value}`,
         "productPrice": `${in3.value}`,
     });
@@ -33,7 +33,7 @@ function postFunction(inputValue){
 
     fetch(url, requestOption)
         .then(response => response.json())
-    // location.reload();
+    location.reload();
 }
 
 // function filterMethod(inputValue) {
