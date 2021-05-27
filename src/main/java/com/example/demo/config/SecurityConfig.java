@@ -45,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/webjars/**", "/resources/**").permitAll() //webjars og resources skal være der
-                .antMatchers("/").permitAll() //permitAll() kan udskiftes med andre roller
+                .antMatchers("/**").permitAll() //permitAll() kan udskiftes med andre roller
                 .antMatchers("/efterbehandling.html").permitAll()
                 .antMatchers("/erfaringer.html").permitAll()
                 .antMatchers("/priser.html").permitAll()
@@ -68,10 +68,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .authenticated()
                 .and()
-                .formLogin( )
-                    .defaultSuccessUrl("/calendar", true)
+//                .formLogin( )
+//                    .defaultSuccessUrl("/calendar", true)
 //              .loginPage("/calendar") //hvis man vil have sin egen login side
-                .and()
+//                .and()
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/login")
