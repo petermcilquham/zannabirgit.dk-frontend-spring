@@ -1,8 +1,14 @@
 const getProductsUrl = "http://localhost:8080/products/all"
-
 const requestOption = {
     headers: {
-        "Content-type": 'application/json'
+        'Content-type': 'application/json',
+        'Accept': 'application/json',
+        'mode':'cors',
+        'Access-Control-Allow-Origin' : '*',
+        'Vary': 'Origin',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT',
+        'Access-Control-Allow-Credentials' : true
     },
     method: 'GET',
     redirect: 'follow'
@@ -31,29 +37,40 @@ function addRowForEdit(data) {
     cell3.innerHTML = data.productPrice + "kr";
 }
 
+
 const inputProductID = document.getElementById("deleteProduct");
 const deleteProductBtn = document.querySelector(".deleteProductButton")
 
 deleteProductBtn.onclick = function(){
-    deleteProduct(`http://localhost:8080/products/delete/${inputProductID.value}`);
-    location.reload();
+    deleteProduct({
+        "productId": `${inputProductID.value}`
+    });
 }
-const deleteRequestOption = {
-    headers: {
-        'Content-type': 'application/json',
-        'Accept': 'application/json',
-        'Access-Control-Allow-Origin' : '*',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With',
-        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-        'Access-Control-Allow-Credentials' : true
-    },
-    method: 'DELETE',
-    redirect: 'follow'
 
-};
+function deleteProduct(inputValue){
+    const deleteUrl = `http://localhost:8080/products/delete/${inputProductID.value}`
 
-function deleteProduct(deleteUrl){
+    let requestBody = JSON.stringify(inputValue);
+
+    const deleteRequestOption = {
+        headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json',
+            'mode':'cors',
+            'Access-Control-Allow-Origin' : '*',
+            'Vary': 'Origin',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With',
+            'Access-Control-Allow-Methods': 'GET, POST, PUT',
+            'Access-Control-Allow-Credentials' : true
+        },
+        method: 'DELETE',
+        redirect: 'follow',
+        body: requestBody
+    };
+
     fetch(deleteUrl, deleteRequestOption)
         .then(response => response.json())
+
+    location.reload();
 }
 

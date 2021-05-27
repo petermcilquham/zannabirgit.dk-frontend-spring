@@ -56,11 +56,9 @@ function getCustomerId() {
         if (contentType && contentType.indexOf("application/json") !== -1) {
           return response.json()
               .then(customerData => changeEmailToCustomerId(customerData));
-
         } else {
           return response.text()
               .then(newCustomerData => createCustomer(newCustomerData));
-
         }
       })
 }
